@@ -1,0 +1,15 @@
+set datafile separator ','
+
+set term postscript enhanced solid color
+set output 'waterComparison.eps'
+
+set key noauto bottom left 
+
+set xlabel 'time (yr)'
+set ylabel 'total precipitation (in)'
+
+set title 'Annual precipitation totals'
+
+pl [:2017][0:]\
+	'457Merge.csv'  u 2:($5>0?$5:1/0) tit 'SNOTEL Dry Lake, 8400 ft. Steamboat' w lp pt 7 ,\
+   	'1057Merge.csv' u 2:($5>0?$5:1/0) tit 'SNOTEL Glen Cove, 11450 ft, Teller' w lp pt 7
