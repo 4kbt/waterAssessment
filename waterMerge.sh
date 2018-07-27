@@ -1,7 +1,9 @@
-rm 457Merge.csv
+FN=$1Merge.csv
 
-for name in `ls 457_STAND*`; do
-	tail -n 5 $name >> 457Merge.csv
+rm $FN
+
+for name in `ls $1_STAND*`; do
+	tail -n 5 $name >> $FN
 done
 
-sed  -i '/^\s*$/d'  457Merge.csv
+sed  -i '/^\s*$/d'  $FN
